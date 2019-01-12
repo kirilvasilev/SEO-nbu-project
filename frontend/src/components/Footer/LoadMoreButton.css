@@ -1,0 +1,15 @@
+.app__footer {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.footer__load-more-btn {
+    background-color: white;
+    color: rgb(65,105,225);
+    border: 1.2px solid;
+    border-radius: 4px;
+    padding: 7px 25px;
+    cursor: pointer;
+    font-weight: bold;
+}

@@ -1,0 +1,16 @@
+.event-session__title {
+    font-weight: bold;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+.event-session__sub-session {
+    display: flex;
+    justify-content: space-between;
+    text-transform: lowercase;
+}
+
+.event-session__sub-session:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}

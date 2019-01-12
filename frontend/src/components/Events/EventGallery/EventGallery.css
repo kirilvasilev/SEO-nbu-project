@@ -1,0 +1,4 @@
+.app__event-gallery {
+    display: flex;
+    justify-content: space-around;
+}
