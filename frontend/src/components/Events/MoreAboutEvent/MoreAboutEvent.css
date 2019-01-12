@@ -1,22 +1,4 @@
-.dialog__more-event-info {
-    border: none;
-    width: 450px;
-    padding: 0px 25px;
-    border-radius: 4px;
-}
-
-.dialog__close-button {
-    float: right;
-    background-color: white;
-    border: none;
-    color: rgba(128,128,128,.5);
-    cursor: pointer;
-    margin-top: 10px;
-    font-weight: bold;
-
-}
-
-.dialog__title {
+.more_about_event__title {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     text-align: center;
     margin-top: 10px;
@@ -24,12 +6,12 @@
     font-weight: bold;
 }
 
-.dialog__event-description {
+.more_about_event__event-description {
     padding-top: 10px;
     font-weight: bold;
 }
 
-.dialog__event-description > p {
+.more_about_event__event-description > p {
     margin-bottom: 0px;
 }
 
@@ -42,7 +24,7 @@
     cursor: pointer;
     font-weight: bold;
     max-width: 200px;
-    margin-top: 10px;
+    margin: 12px 0;
 }
 
 .more_about_event__img {
@@ -62,9 +44,8 @@
     flex-direction: column-reverse;
 }
 
- /*Mobile devices*/
-@media (max-width: 540px) {
-    .dialog__more-event-info {
-        width: 80%
-    }
+.event-description__title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
 }

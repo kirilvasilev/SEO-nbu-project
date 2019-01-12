@@ -38,10 +38,11 @@ export class MoreAboutEvent extends React.Component {
                         title={"Back To All Events"}
                     >Back To All Events</button>
                 </div>
-                <h4 className="mdl-dialog__title dialog__title">{event.title}</h4>
-                <div className="mdl-dialog__content">
+                <h4 className="more_about_event__title">{event.title}</h4>
+                <div className="more_about_event__content">
                     <EventDetails event={event}/>
-                    <div className="dialog__event-description"> Description
+                    <div className="more_about_event__event-description">
+                        <h4 className="event-description__title">Description</h4>
                         <p>{event.description}</p>
                     </div>
                     {

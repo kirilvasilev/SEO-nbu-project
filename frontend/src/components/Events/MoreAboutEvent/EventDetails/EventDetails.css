@@ -1,4 +1,4 @@
-.dialog__event-details {
+.event-details__wrapper {
     display: flex;
     justify-content: space-between;
     padding-bottom: 10px;
@@ -14,6 +14,16 @@
 .event-details__title, .event-details__time-and-date, .event-details__location {
     font-weight: bold;
     padding-bottom: 10px;
+}
+
+.event-details__time-and-date, .event-details__location {
+    margin: 0;
+    font-weight: 500;
+}
+
+.event-details__title {
+    font-size: 18px;
+    margin: 0;
 }
 
 .event-details__time-and-date > p, .event-details__location > p {

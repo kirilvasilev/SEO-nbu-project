@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { clickCatch, formatDate } from '../../utils/utils';
+import { formatDate } from '../../utils/utils';
 import './Event.css'
-import { Redirect } from 'react-router-dom'
 import history from '../../history';
 
 export class Event extends React.Component {
 
      constructor(props) {
         super(props);
-        this.state = {dialog: document.querySelector('dialog')};
     }
 
     render() {

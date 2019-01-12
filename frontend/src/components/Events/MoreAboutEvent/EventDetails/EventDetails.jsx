@@ -13,25 +13,25 @@ export class EventDetails extends React.Component {
         if(!event) return null;
 
         return (
-            <div className="dialog__event-details">
+            <div className="event-details__wrapper">
                 <div className="event-details__text">
-                    <div className="event-details__title">Event Details</div>
+                    <h4 className="event-details__title">Event Details</h4>
                     {
                         event && event.event_start &&
-                        <div className="event-details__time-and-date">Time & Date
+                        <h6 className="event-details__time-and-date">Time & Date
                             <p className="event-details__date">{formatDateYear(event.event_start)}</p>
                             {
                                 event.event_end && event.event_start &&
                                 <p className="event-details__time">{formatHours(event.event_start)} - {formatHours(event.event_end)}</p>
                             }
-                        </div>
+                        </h6>
                     }
                     {
                         venue &&
-                        <div className="event-details__location">Location
+                        <h6 className="event-details__location">Location
                             <p className="event-details__address">{venue && venue.address}</p>
-                            <p className="event-details__city-region-postalCode">{venue && venue.city}, {venue && venue.region}{venue && venue.postalCode}</p>
-                        </div>
+                            <p className="event-details__city-region-postalCode">{venue && venue.city}, {venue && venue.region} {venue && venue.postalCode}</p>
+                        </h6>
                     }
                 </div>
                 <MapContainer venue={venue}/>
