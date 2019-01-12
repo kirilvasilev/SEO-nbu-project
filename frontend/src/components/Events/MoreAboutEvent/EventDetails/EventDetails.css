@@ -1,0 +1,25 @@
+.dialog__event-details {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.event-details__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.event-details__title, .event-details__time-and-date, .event-details__location {
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.event-details__time-and-date > p, .event-details__location > p {
+    margin: 0px;
+}
+
+.event-details__time {
+    text-transform: lowercase;
+}

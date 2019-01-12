@@ -1,0 +1,70 @@
+.dialog__more-event-info {
+    border: none;
+    width: 450px;
+    padding: 0px 25px;
+    border-radius: 4px;
+}
+
+.dialog__close-button {
+    float: right;
+    background-color: white;
+    border: none;
+    color: rgba(128,128,128,.5);
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+
+}
+
+.dialog__title {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.dialog__event-description {
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.dialog__event-description > p {
+    margin-bottom: 0px;
+}
+
+.load-more-btn {
+    background-color: white;
+    color: rgb(65,105,225);
+    border: 1.2px solid;
+    border-radius: 4px;
+    padding: 7px 25px;
+    cursor: pointer;
+    font-weight: bold;
+    max-width: 200px;
+    margin-top: 10px;
+}
+
+.more_about_event__img {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    align-self: center;
+}
+
+.more_about_event__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.more_about_event__header {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+ /*Mobile devices*/
+@media (max-width: 540px) {
+    .dialog__more-event-info {
+        width: 80%
+    }
+}
