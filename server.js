@@ -2,34 +2,21 @@
  * A very simple web server for the Front-end code challenge.
  */
 
-const http = require('http');
 const express  = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
 const fixtures = require('./fixtures');
 
-var IP = 'localhost';
-var PORT = 3000;
-var PUBLIC_DIR = 'build';
 
-var app = express();
+const PORT = process.env.PORT || 3000;
+const PUBLIC_DIR = 'public';
 
-app.set('view engine', 'ejs');
-app.set('views', `${__dirname}`);
-app.use(cors()); // enabling all cors requests.
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
+const app = express();
 // set public directory for assets like css and js files.
 app.use(express.static(PUBLIC_DIR));
 
-app.listen(PORT, IP, function() {
-    console.log(Date.now() + ' - Server running at http://' + IP + ':' + PORT);
+app.listen(PORT, function() {
+    console.log(`${Date.now()} - Server running at port ${PORT}`);
 });
 
-app.get(['/', '/dashboard'], function(req, res, next) {
-    res.render('index');
-});
 
 /**
  * Returns list of events.
@@ -71,3 +58,7 @@ app.get('/events/:id', function(req, res, next) {
         event: event,
     });
 });
+
+// app.get('*' ,function(req, res, next) {
+//     res.render('index');
+// });

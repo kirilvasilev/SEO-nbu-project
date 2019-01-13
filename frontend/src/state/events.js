@@ -13,11 +13,12 @@ const initialState = {
     events: [],
     total: 0
 }
+const APP_ADDRESS = 'https://nbu-events-app.herokuapp.com'
 
 //Actions
 export const fetchEvents = pageNumber => async dispatch => {
     try {
-        const rsp = await axios.get(`http://localhost:3000/events?page=${pageNumber}`);
+        const rsp = await axios.get(`${APP_ADDRESS}/events?page=${pageNumber}`);
         dispatch({
             type: FETCH_EVENTS,
             payload: rsp.data
@@ -29,7 +30,7 @@ export const fetchEvents = pageNumber => async dispatch => {
 
 export const fetchMoreEventInfo = id => async dispatch => {
     try {
-        const rsp = await axios.get(`http://localhost:3000/events/${id}`)
+        const rsp = await axios.get(`${APP_ADDRESS}/events/${id}`)
         dispatch({
             type: FETCH_MORE_EVENT_INFORMTAION,
             payload: rsp.data.event
