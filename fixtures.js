@@ -1,4 +1,4 @@
-var events = [
+const events = [
     {
         id: 122,
         title: 'Welcoming new dev 🍻',
@@ -220,6 +220,4 @@ var events = [
     },
 ];
 
-module.exports = {
-    events: events,
-};
+exports.events = events;

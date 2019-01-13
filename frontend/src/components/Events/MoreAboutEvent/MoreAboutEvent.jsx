@@ -14,7 +14,7 @@ export class MoreAboutEvent extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchMoreEventInfo(window.location.href.split('/')[4])
+        this.props.fetchMoreEventInfo(window.location.href.split('/')[5])
     }
 
     render() {

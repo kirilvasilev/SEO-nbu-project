@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route, Switch } from 'react-router-dom'
+import { HashRouter, Route, Switch } from 'react-router-dom'
 import store from './state/store';
 import history from './history';
 
@@ -16,12 +16,12 @@ class App extends Component {
       <Provider store={store}>
         <div className="app-container">
           <Header/>
-          <Router history={history}>
+          <HashRouter history={history}>
             <Switch>
               <Route exact path='/' component={Dashboard}/>
               <Route path='/events/:id' component={MoreAboutEventContainer}/>
             </Switch>
-          </Router>
+          </HashRouter>
         </div>
 
       </Provider>

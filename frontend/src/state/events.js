@@ -24,11 +24,12 @@ export const fetchEvents = pageNumber => async dispatch => {
             payload: rsp.data
         });
     } catch(error) {
-        // handle error here
+        console.error(error);
     }
 }
 
 export const fetchMoreEventInfo = id => async dispatch => {
+     console.log(`Fetching ${APP_ADDRESS}/events/${id} from Axios!`)
     try {
         const rsp = await axios.get(`${APP_ADDRESS}/events/${id}`)
         dispatch({
@@ -36,7 +37,7 @@ export const fetchMoreEventInfo = id => async dispatch => {
             payload: rsp.data.event
         });
     } catch(error) {
-        // handle error here
+        console.error(error);
     }
 }
 

@@ -21,7 +21,7 @@ export class Event extends React.Component {
 
         return (
             <div className="mdl-cell event-gallery__event" data-js={dataId} onClick={() => {
-                    this.props.fetchMoreEventInfo(event.id);
+                    //this.props.fetchMoreEventInfo(event.id);
                     history.push(`/events/${event.id}`)
                 }}>
                 <img

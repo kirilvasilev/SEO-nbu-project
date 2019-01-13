@@ -3,8 +3,7 @@
  */
 
 const express  = require('express');
-const fixtures = require('./fixtures');
-
+const { events } = require('./fixtures');
 
 const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = 'public';
@@ -13,7 +12,7 @@ const app = express();
 // set public directory for assets like css and js files.
 app.use(express.static(PUBLIC_DIR));
 
-app.listen(PORT, function() {
+app.listen(PORT, () => {
     console.log(`${Date.now()} - Server running at port ${PORT}`);
 });
 
@@ -21,44 +20,48 @@ app.listen(PORT, function() {
 /**
  * Returns list of events.
  */
-app.get('/events', function(req, res, next) {
+app.get('/events', (req, res, next) => {
     var pageSize = 3;
     var currentPage = req.query.page || 1;
+    console.log(`${req.headers['x-forwarded-for']} ${req.ip} ${req.method} ${req.url}`);
+    try {
+        pagedEvents = events.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
-    var allEvents = Object.assign([], fixtures.events);
-    events = allEvents.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-
-    events = events.map(function(event) {
-        var mappedEvent = Object.assign({}, event);
-        delete mappedEvent.sessions;
-        delete mappedEvent.description;
-        return mappedEvent;
-    });
+        pagedEvents = pagedEvents.map(function(event) {
+            var mappedEvent = Object.assign({}, event);
+            delete mappedEvent.sessions;
+            delete mappedEvent.description;
+            return mappedEvent;
+        });
 
     return res.json({
-        events: events,
-        total: allEvents.length,
+        events: pagedEvents,
+        total: events.length,
     });
+    }
+    catch (err) {
+        console.error(err);
+    }
 });
 
 /**
  * Returns detailed information for an event.
  */
-app.get('/events/:id', function(req, res, next) {
-    var eventId = req.params.id;
-    var event = fixtures.events.find(function(event) {
-        return event.id == eventId;
-    });
+app.get('/events/:id', (req, res, next) => {
+    console.log(`${req.host} ${req.method} ${req.url}`);
+    try{
+        var eventId = req.params.id;
+        var event = events.find((event) => event.id == eventId);
 
-    if (!event) {
-        return res.json({ error: 'notFound' });
+        if (!event) {
+            return res.json({ error: 'notFound' });
+        }
+
+        return res.json({
+            event: event,
+        });
     }
-
-    return res.json({
-        event: event,
-    });
+    catch (err) {
+        console.error(err);
+    }
 });
-
-// app.get('*' ,function(req, res, next) {
-//     res.render('index');
-// });
